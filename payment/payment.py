@@ -28,10 +28,6 @@ def exception_handler(err):
 def health():
     return 'OK'
 
-@app.route('/foo', methods=['GET'])
-def foo():
-    return 'bar'
-
 @app.route('/pay/<id>', methods=['POST'])
 def pay(id):
     app.logger.info('payment for {}'.format(id))
@@ -57,7 +53,7 @@ def pay(id):
     # check that the cart is valid
     # this will blow up if the cart is not valid
     has_shipping = False
-    for item in cart.get('items'):
+    for item in cart.get('items', []): # default to empty dict
         if item.get('sku') == 'SHIP':
             has_shipping = True
 
