@@ -28,6 +28,10 @@ def exception_handler(err):
 def health():
     return 'OK'
 
+@app.route('/foo', methods=['GET'])
+def foo():
+    return 'bar'
+
 @app.route('/pay/<id>', methods=['POST'])
 def pay(id):
     app.logger.info('payment for {}'.format(id))
