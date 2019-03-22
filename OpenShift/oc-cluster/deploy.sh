@@ -2,8 +2,7 @@
 
 set -e
 
-#APPS="cart catalogue dispatch mongo mysql payment ratings shipping user web"
-APPS="user web"
+APPS="cart catalogue dispatch mongo mysql payment ratings shipping user web"
 REPO="https://github.com/steveww/rshop"
 
 echo "logging in as developer"
@@ -17,11 +16,11 @@ fi
 oc project robot-shop
 
 # Standard app images from Docker Hub
-#oc import-image redis --from redis:4.0.6 --confirm
-#oc import-image rabbitmq --from rabbitmq:3.7-management-alpine --confirm
+oc import-image redis --from redis:4.0.6 --confirm
+oc import-image rabbitmq --from rabbitmq:3.7-management-alpine --confirm
 
-#oc new-app -i redis --name redis
-#oc new-app -i rabbitmq --name rabbitmq
+oc new-app -i redis --name redis
+oc new-app -i rabbitmq --name rabbitmq
 
 # Apps from source in GitHub
 for APP in $APPS
