@@ -10,6 +10,8 @@
 }
 ```
 
+- Restart Docker
+
 I believe that this is the *standard* address for the registry. The use of iptables ensures it is always correctly mapped.
 
 The insecure registry is the internal OpenShift registry. Images will be pushed to this registry after they have been built.
